@@ -17,6 +17,7 @@ public class Documento {
     private Persona destinatario;
     private ArrayList<String> palabrasClaves;
     private boolean estadoEnvio;
+    private EnteExterno enviadosA; //asociacion
     
     public Documento(){}
     public Documento(Date fecha, Persona autor, Persona destinatario, ArrayList<String> palabrasClaves, boolean estadoEnvio) {
@@ -65,5 +66,22 @@ public class Documento {
 
     public void setEstadoEnvio(boolean estadoEnvio) {
         this.estadoEnvio = estadoEnvio;
+    }
+
+    public EnteExterno getEnviadosA() {
+        return enviadosA;
+    }
+
+    public void setEnviadosA(EnteExterno enviadosA) {
+        this.enviadosA = enviadosA;
+    }
+
+    public Documento(Date fecha, Persona autor, Persona destinatario, ArrayList<String> palabrasClaves, boolean estadoEnvio, EnteExterno enviadosA) {
+        this.fecha = fecha;
+        this.autor = autor;
+        this.destinatario = destinatario;
+        this.palabrasClaves = palabrasClaves;
+        this.estadoEnvio = estadoEnvio;
+        this.enviadosA = enviadosA;
     }
 }

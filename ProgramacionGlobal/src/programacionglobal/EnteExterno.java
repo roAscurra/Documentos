@@ -12,6 +12,7 @@ public class EnteExterno {
     private String nombre;
     private String direccion;
     private int telefono;
+    private Documento tiene; //asociacion
     
     public EnteExterno(){}
 
@@ -43,6 +44,21 @@ public class EnteExterno {
 
     public void setTelefono(int telefono) {
         this.telefono = telefono;
+    }
+
+    public Documento getTiene() {
+        return tiene;
+    }
+
+    public void setTiene(Documento tiene) {
+        this.tiene = tiene;
+    }
+
+    public EnteExterno(String nombre, String direccion, int telefono, Documento tiene) {
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.tiene = tiene;
     }
     
 }
