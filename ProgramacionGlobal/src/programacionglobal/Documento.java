@@ -26,4 +26,44 @@ public class Documento {
         this.palabrasClaves = palabrasClaves;
         this.estadoEnvio = estadoEnvio;
     }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public Persona getAutor() {
+        return autor;
+    }
+
+    public void setAutor(Persona autor) {
+        this.autor = autor;
+    }
+
+    public Persona getDestinatario() {
+        return destinatario;
+    }
+
+    public void setDestinatario(Persona destinatario) {
+        this.destinatario = destinatario;
+    }
+
+    public ArrayList<String> getPalabrasClaves() {
+        return palabrasClaves;
+    }
+
+    public void setPalabrasClaves(ArrayList<String> palabrasClaves) {
+        this.palabrasClaves = palabrasClaves;
+    }
+
+    public boolean isEstadoEnvio() {
+        return estadoEnvio;
+    }
+
+    public void setEstadoEnvio(boolean estadoEnvio) {
+        this.estadoEnvio = estadoEnvio;
+    }
 }
