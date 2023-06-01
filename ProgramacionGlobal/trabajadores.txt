@@ -7,3 +7,4 @@ Nombre: Romina, Cargo:Programadora, Fecha de Ingreso: 10/06/2023, Direccion: ee,
 Nombre: Ro, Cargo:P, Fecha de Ingreso: 10/06/2023, Direccion: fd, Telefono: 2634.0
 Nombre: r, Cargo:a, Fecha de Ingreso: 10/06/2023, Direccion: estrada, Telefono: 236242.0
 Nombre: r, Cargo:r, Fecha de Ingreso: 10/06/2023, Direccion: eee, Telefono: 2.8382832E7
+Nombre: Romina, Cargo:CARGO, Fecha de Ingreso: 10/06/2023, Direccion: Eds5, Telefono: 2.63462221E9

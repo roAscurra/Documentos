@@ -26,10 +26,12 @@ public class ProgramacionGlobal {
     public static void main(String[] args) throws ParseException, IOException {
         // TODO code application logic here
         int esTrabajador;
+        ArrayList<Persona> trabajadores = new ArrayList();
         esTrabajador = JOptionPane.showConfirmDialog(null, "Eres trabajador de la empresa?");
-        if(esTrabajador==0){
+        while(esTrabajador==0){
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
             Persona p1 = new Persona();
+            trabajadores.add(p1);
             p1.setNombre(JOptionPane.showInputDialog("Ingrese su nombre: "));
             p1.setCargo(JOptionPane.showInputDialog("Cargo que tiene: "));
             p1.setFechaIngreso(formato.parse(JOptionPane.showInputDialog("Fecha de Ingreso (dd/MM/yyyy): ")));
@@ -69,12 +71,20 @@ public class ProgramacionGlobal {
                     palabrasClaves.add(JOptionPane.showInputDialog("Ingrese palabra clave " + (i+1)));
                 }
                 doc1.setPalabrasClaves(palabrasClaves);
-                JOptionPane.showMessageDialog(null,"Los siguientes datos a ingresar corresponden al correo por el cual envia el documento");
-                doc1.datosCorreo(c, p1);
-                doc1.setEmpresa(JOptionPane.showInputDialog("Nombre de la empresa con la que lo envìa"));
-                doc1.setNumeroSeguimiento(Float.parseFloat(JOptionPane.showInputDialog("Ingrese numero de seguimiento: ")));
-                doc1.setEstadoEnvio(true);
-            }
+                int enviarDoc;
+                enviarDoc = JOptionPane.showConfirmDialog(null, "Desea enviar el documento? ");
+                if(enviarDoc == 0){
+                    JOptionPane.showMessageDialog(null,"Debe ingresar los siguientes datos que corresponden al correo por el cual envia el documento");
+                    doc1.datosCorreo(c, p1);
+                    doc1.setNumeroSeguimiento(Float.parseFloat(JOptionPane.showInputDialog("Ingrese numero de seguimiento: ")));
+                    doc1.setEstadoEnvio(true);               
+                }
+            }       
+            esTrabajador = JOptionPane.showConfirmDialog(null, "¿Hay otro trabajador de la empresa?");
+
+        }
+        for(int i = 0; i<trabajadores.size();i++){
+            System.out.println(trabajadores.get(i).getNombre());
         }
     }
 }
