@@ -11,12 +11,12 @@ package programacionglobal;
 public class EnteExterno {
     private String nombre;
     private String direccion;
-    private int telefono;
+    private float telefono;
     private Documento tiene; //asociacion
     
     public EnteExterno(){}
 
-    public EnteExterno(String nombre, String direccion, int telefono) {
+    public EnteExterno(String nombre, String direccion, float telefono) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -38,11 +38,11 @@ public class EnteExterno {
         this.direccion = direccion;
     }
 
-    public int getTelefono() {
+    public float getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(float telefono) {
         this.telefono = telefono;
     }
 
@@ -54,7 +54,7 @@ public class EnteExterno {
         this.tiene = tiene;
     }
 
-    public EnteExterno(String nombre, String direccion, int telefono, Documento tiene) {
+    public EnteExterno(String nombre, String direccion, float telefono, Documento tiene) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;

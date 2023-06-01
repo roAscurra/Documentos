@@ -1,2 +1,6 @@
 Romona,dsf,12/01/2025,jnj,26355
 Nombre: Romina, Cargo:Programadora, Fecha de Ingreso: 10/06/2023, Direccion: estrada 250, Telefono: 2.63462246E9
+Nombre: Romina, Cargo:Programador, Fecha de Ingreso: 10/06/2023, Direccion: Estrada 250, Telefono: 2.63462246E9
+Nombre: Romina, Cargo:Supervisor, Fecha de Ingreso: 10/06/2023, Direccion: Estrada 250, Telefono: 2.63462246E9
+Nombre: Romina, Cargo:fs, Fecha de Ingreso: 10/06/2023, Direccion: sds, Telefono: 2.0263456E7
+Nombre: Romina, Cargo:Programadora, Fecha de Ingreso: 10/06/2023, Direccion: ee, Telefono: 2222.0
