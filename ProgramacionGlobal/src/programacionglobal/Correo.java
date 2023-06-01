@@ -11,12 +11,12 @@ package programacionglobal;
 public class Correo {
     private String nombre;
     private String direccion;
-    private int telefono;
+    private float telefono;
     private Persona PersonaContacto;
     
     public Correo(){}
 
-    public Correo(String nombre, String direccion, int telefono, Persona PersonaContacto) {
+    public Correo(String nombre, String direccion, float telefono, Persona PersonaContacto) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -39,11 +39,11 @@ public class Correo {
         this.direccion = direccion;
     }
 
-    public int getTelefono() {
+    public float getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(float telefono) {
         this.telefono = telefono;
     }
 
