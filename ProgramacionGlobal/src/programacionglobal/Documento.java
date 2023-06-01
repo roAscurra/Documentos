@@ -84,4 +84,10 @@ public class Documento {
         this.estadoEnvio = estadoEnvio;
         this.enviadosA = enviadosA;
     }
+    public static int cantidadEnEspera(){
+        return 0;
+    }
+    public static void documentosQueIncluyen(String unaPalabra){
+        System.out.println("Los documentos que incluyen la palabra ingresada son:");
+    }
 }

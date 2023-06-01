@@ -14,19 +14,19 @@ import java.util.Date;
 public class Persona {
     private String nombre;
     private String direccion;
-    private int telefono;
+    private float telefono;
     private Date fechaIngreso;
     private String cargo;
-    private ArrayList<Documento> trabajador; //asociacion
+    private ArrayList<Documento> documentos; //asociacion
     public Persona(){}
 
-    public Persona(String nombre, String direccion, int telefono, Date fechaIngreso, String cargo, ArrayList<Documento> trabajador) {
+    public Persona(String nombre, String direccion, float telefono, Date fechaIngreso, String cargo, ArrayList<Documento> documentos) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.fechaIngreso = fechaIngreso;
         this.cargo = cargo;
-        this.trabajador = trabajador;
+        this.documentos = documentos;
     }
 
     public String getNombre() {
@@ -45,11 +45,11 @@ public class Persona {
         this.direccion = direccion;
     }
 
-    public int getTelefono() {
+    public float getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(float telefono) {
         this.telefono = telefono;
     }
 
@@ -69,11 +69,14 @@ public class Persona {
         this.cargo = cargo;
     }
 
-    public ArrayList<Documento> getTrabajador() {
-        return trabajador;
+    public ArrayList<Documento> getDocumentos() {
+        return documentos;
     }
 
-    public void setTrabajador(ArrayList<Documento> trabajador) {
-        this.trabajador = trabajador;
+    public void setTrabajador(ArrayList<Documento> documentos) {
+        this.documentos = documentos;
+    }
+    public static void autorMasProductivo(){
+        System.out.println("El empleado que mas documentos ha confeccionado es: ");
     }
 }
