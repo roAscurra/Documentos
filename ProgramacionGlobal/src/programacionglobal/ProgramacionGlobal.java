@@ -35,6 +35,19 @@ public class ProgramacionGlobal {
             //System.out.println(formato.format(p1.getFechaIngreso()));
             p1.setDireccion(JOptionPane.showInputDialog("Direccion: "));
             p1.setTelefono(Float.parseFloat(JOptionPane.showInputDialog("Telefono: ")));
+            //Persistencia con los datos del trabajador
+            // Crear una cadena con los datos a guardar en el archivo
+            String datosTrabajador = "Nombre: "+p1.getNombre() + ", Cargo:" + p1.getCargo() + ", Fecha de Ingreso: " + formato.format(p1.getFechaIngreso()) + ", Direccion: " + p1.getDireccion() + ", Telefono: " + p1.getTelefono();
+            // Especificar la ruta y el nombre del archivo
+            String rutaArchivo = "trabajadores.txt";
+                        try (BufferedWriter writer = new BufferedWriter(new FileWriter(rutaArchivo, true))) {
+                // Escribir los datos en el archivo
+                writer.write(datosTrabajador);
+                writer.newLine(); // Agregar una nueva línea después de cada trabajador
+                System.out.println("Datos del trabajador guardados correctamente en el archivo.");
+            } catch (IOException e) {
+                System.out.println("Error al guardar los datos del trabajador en el archivo: " + e.getMessage());
+            }
         }
     }
 }
