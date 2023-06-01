@@ -6,6 +6,7 @@ package programacionglobal;
 
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,14 +19,18 @@ public class Documento {
     private ArrayList<String> palabrasClaves;
     private boolean estadoEnvio;
     private EnteExterno enviadosA; //asociacion
-    
+    private Correo despachadoPor; 
+
     public Documento(){}
-    public Documento(Date fecha, Persona autor, Persona destinatario, ArrayList<String> palabrasClaves, boolean estadoEnvio) {
+
+    public Documento(Date fecha, Persona autor, Persona destinatario, ArrayList<String> palabrasClaves, boolean estadoEnvio, EnteExterno enviadosA, Correo despachadoPor) {
         this.fecha = fecha;
         this.autor = autor;
         this.destinatario = destinatario;
         this.palabrasClaves = palabrasClaves;
         this.estadoEnvio = estadoEnvio;
+        this.enviadosA = enviadosA;
+        this.despachadoPor = despachadoPor;
     }
 
     public Date getFecha() {
@@ -76,16 +81,22 @@ public class Documento {
         this.enviadosA = enviadosA;
     }
 
-    public Documento(Date fecha, Persona autor, Persona destinatario, ArrayList<String> palabrasClaves, boolean estadoEnvio, EnteExterno enviadosA) {
-        this.fecha = fecha;
-        this.autor = autor;
-        this.destinatario = destinatario;
-        this.palabrasClaves = palabrasClaves;
-        this.estadoEnvio = estadoEnvio;
-        this.enviadosA = enviadosA;
-    }
     public static int cantidadEnEspera(){
         return 0;
+    }
+
+    public Correo getDespachadoPor() {
+        return despachadoPor;
+    }
+
+    public void setDespachadoPor(Correo despachadoPor) {
+        this.despachadoPor = despachadoPor;
+    }
+    public static void datosCorreo(Correo c1, Persona p){
+        c1.setNombre(JOptionPane.showInputDialog("Nombre del correo: "));
+        c1.setDireccion(JOptionPane.showInputDialog("Direccion del correo: "));
+        c1.setTelefono(Integer.parseInt(JOptionPane.showInputDialog("Telefono del correo: ")));
+        c1.setPersonaContacto(p);
     }
     public static void documentosQueIncluyen(String unaPalabra){
         System.out.println("Los documentos que incluyen la palabra ingresada son:");
