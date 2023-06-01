@@ -9,26 +9,26 @@ package programacionglobal;
  * @author Usuario
  */
 public class Correo {
-    private String nombre;
+    private String nombreEmpresa;
     private String direccion;
     private float telefono;
     private Persona PersonaContacto;
     
     public Correo(){}
 
-    public Correo(String nombre, String direccion, float telefono, Persona PersonaContacto) {
-        this.nombre = nombre;
+    public Correo(String nombreEmpresa, String direccion, float telefono, Persona PersonaContacto) {
+        this.nombreEmpresa = nombreEmpresa;
         this.direccion = direccion;
         this.telefono = telefono;
         this.PersonaContacto = PersonaContacto;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreEmpresa() {
+        return nombreEmpresa;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreEmpresa(String nombreEmpresa) {
+        this.nombreEmpresa = nombreEmpresa;
     }
 
     public String getDireccion() {
@@ -54,6 +54,5 @@ public class Correo {
     public void setPersonaContacto(Persona PersonaContacto) {
         this.PersonaContacto = PersonaContacto;
     }
-    
     
 }

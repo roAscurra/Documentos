@@ -102,12 +102,21 @@ public class Documento {
         this.despachadoPor = despachadoPor;
     }
     public static void datosCorreo(Correo c1, Persona p){
-        c1.setNombre(JOptionPane.showInputDialog("Nombre del correo: "));
+        c1.setNombreEmpresa(JOptionPane.showInputDialog("Nombre de la empresa: "));
         c1.setDireccion(JOptionPane.showInputDialog("Direccion del correo: "));
         c1.setTelefono(Integer.parseInt(JOptionPane.showInputDialog("Telefono del correo: ")));
         c1.setPersonaContacto(p);
     }
-    public static void documentosQueIncluyen(String unaPalabra){
-        System.out.println("Los documentos que incluyen la palabra ingresada son:");
+    public static void documentosQueIncluyen(String unaPalabra, ArrayList<Documento> docs){
+        ArrayList<Documento> docIncluye = new ArrayList();
+        for(int i=0;i<docs.size();i++){
+           if(docs.get(i).getPalabrasClaves().get(i).equals(unaPalabra)){
+               docIncluye.add(docs.get(i));
+           }
+        }
+        System.out.println("Los documentos que incluyen la palabra ingresada son: ");
+        for(int i=0; i<docIncluye.size();i++){
+            System.out.println(docIncluye.get(i).getAutor());
+        }
     }
 }
