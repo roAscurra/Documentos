@@ -76,7 +76,21 @@ public class Persona {
     public void setTrabajador(ArrayList<Documento> documentos) {
         this.documentos = documentos;
     }
-    public static void autorMasProductivo(){
-        System.out.println("El empleado que mas documentos ha confeccionado es: ");
+    public static void autorMasProductivo(ArrayList<Documento> docs, ArrayList<Persona> autores){
+        Persona autorMasProductivo = null;
+        int maxDoc = 0;
+        for(int i=0 ; i < autores.size(); i++ ){
+            int cantDoc = 0;
+            for(int j = 0; j< docs.size(); j++){
+                if(docs.get(j).getAutor().equals(autores.get(i).getNombre())){
+                    cantDoc++;
+                }
+            }
+            if(cantDoc > maxDoc){
+                maxDoc = cantDoc;
+                autorMasProductivo = autores.get(i);
+            }
+        }
+        System.out.println("El empleado que mas documentos ha confeccionado es: "+autorMasProductivo.getNombre());
     }
 }
