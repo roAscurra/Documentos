@@ -34,8 +34,8 @@ public class ProgramacionGlobal {
             p1.setCargo(JOptionPane.showInputDialog("Cargo que tiene: "));
             p1.setFechaIngreso(formato.parse(JOptionPane.showInputDialog("Fecha de Ingreso (dd/MM/yyyy): ")));
             //System.out.println(formato.format(p1.getFechaIngreso()));
-            p1.setDireccion(JOptionPane.showInputDialog("Direccion: "));
-            p1.setTelefono(Float.parseFloat(JOptionPane.showInputDialog("Telefono: ")));
+            p1.setDireccion(JOptionPane.showInputDialog("Su direccion: "));
+            p1.setTelefono(Float.parseFloat(JOptionPane.showInputDialog("Telefono personal: ")));
             //Persistencia con los datos del trabajador
             // Crear una cadena con los datos a guardar en el archivo
             String datosTrabajador = "Nombre: "+p1.getNombre() + ", Cargo:" + p1.getCargo() + ", Fecha de Ingreso: " + formato.format(p1.getFechaIngreso()) + ", Direccion: " + p1.getDireccion() + ", Telefono: " + p1.getTelefono();
@@ -55,12 +55,13 @@ public class ProgramacionGlobal {
             if(creaDocumento == 0){
                 Documento doc1 = new Documento();
                 EnteExterno dest = new EnteExterno();
+                Correo c = new Correo();
                 ArrayList<String> palabrasClaves = new ArrayList();
                 doc1.setFecha(formato.parse(JOptionPane.showInputDialog("Fecha (dd/MM/yyyy): ")));
                 doc1.setEstadoEnvio(false);
                 dest.setNombre(JOptionPane.showInputDialog("Nombre del destinatario: "));
-                dest.setDireccion(JOptionPane.showInputDialog("Direccion: "));
-                dest.setTelefono(Float.parseFloat(JOptionPane.showInputDialog("Telefono: ")));
+                dest.setDireccion(JOptionPane.showInputDialog("Direcciondel destinario: "));
+                dest.setTelefono(Float.parseFloat(JOptionPane.showInputDialog("Telefonodel destinatario: ")));
                 dest.setTiene(doc1);
                 doc1.setEnviadosA(dest);
                 int cantPalabras = Integer.parseInt(JOptionPane.showInputDialog("Cuantas palabras claves tiene el documento?"));
@@ -68,6 +69,9 @@ public class ProgramacionGlobal {
                     palabrasClaves.add(JOptionPane.showInputDialog("Ingrese palabra clave " + (i+1)));
                 }
                 doc1.setPalabrasClaves(palabrasClaves);
+                JOptionPane.showMessageDialog(null,"Los siguientes datos a ingresar corresponden al correo por el cual envia el documento");
+                doc1.datosCorreo(c, p1);
+                doc1.setEstadoEnvio(true);
             }
         }
     }
