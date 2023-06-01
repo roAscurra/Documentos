@@ -15,22 +15,23 @@ import javax.swing.JOptionPane;
 public class Documento {
     private Date fecha;
     private Persona autor;
-    private Persona destinatario;
+    private String empresa;
     private ArrayList<String> palabrasClaves;
     private boolean estadoEnvio;
     private EnteExterno enviadosA; //asociacion
-    private Correo despachadoPor; 
+    private Correo despachadoPor;
+    private float numeroSeguimiento;
 
     public Documento(){}
-
-    public Documento(Date fecha, Persona autor, Persona destinatario, ArrayList<String> palabrasClaves, boolean estadoEnvio, EnteExterno enviadosA, Correo despachadoPor) {
+    public Documento(Date fecha, Persona autor, String empresa, ArrayList<String> palabrasClaves, boolean estadoEnvio, EnteExterno enviadosA, Correo despachadoPor, float numeroSeguimiento) {
         this.fecha = fecha;
         this.autor = autor;
-        this.destinatario = destinatario;
+        this.empresa = empresa;
         this.palabrasClaves = palabrasClaves;
         this.estadoEnvio = estadoEnvio;
         this.enviadosA = enviadosA;
         this.despachadoPor = despachadoPor;
+        this.numeroSeguimiento = numeroSeguimiento;
     }
 
     public Date getFecha() {
@@ -49,12 +50,12 @@ public class Documento {
         this.autor = autor;
     }
 
-    public Persona getDestinatario() {
-        return destinatario;
+    public String getEmpresa() {
+        return empresa;
     }
 
-    public void setDestinatario(Persona destinatario) {
-        this.destinatario = destinatario;
+    public void setEmpresa(String empresa) {
+        this.empresa = empresa;
     }
 
     public ArrayList<String> getPalabrasClaves() {
@@ -87,6 +88,14 @@ public class Documento {
 
     public Correo getDespachadoPor() {
         return despachadoPor;
+    }
+
+    public float getNumeroSeguimiento() {
+        return numeroSeguimiento;
+    }
+
+    public void setNumeroSeguimiento(float numeroSeguimiento) {
+        this.numeroSeguimiento = numeroSeguimiento;
     }
 
     public void setDespachadoPor(Correo despachadoPor) {

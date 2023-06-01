@@ -71,6 +71,8 @@ public class ProgramacionGlobal {
                 doc1.setPalabrasClaves(palabrasClaves);
                 JOptionPane.showMessageDialog(null,"Los siguientes datos a ingresar corresponden al correo por el cual envia el documento");
                 doc1.datosCorreo(c, p1);
+                doc1.setEmpresa(JOptionPane.showInputDialog("Nombre de la empresa con la que lo envìa"));
+                doc1.setNumeroSeguimiento(Float.parseFloat(JOptionPane.showInputDialog("Ingrese numero de seguimiento: ")));
                 doc1.setEstadoEnvio(true);
             }
         }
