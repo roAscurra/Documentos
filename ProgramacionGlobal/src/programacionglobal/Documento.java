@@ -84,10 +84,6 @@ public class Documento {
         this.enviadosA = enviadosA;
     }
 
-    public static int cantidadEnEspera(){
-        return 0;
-    }
-
     public Correo getDespachadoPor() {
         return despachadoPor;
     }
@@ -111,7 +107,7 @@ public class Documento {
     public void setNombreDoc(String nombreDoc) {
         this.nombreDoc = nombreDoc;
     }
-    public static void datosCorreo(Correo c1, Persona p){
+    public static void datosCorreo(Correo c1, Persona p){ //metodo agregado
         c1.setNombreEmpresa(JOptionPane.showInputDialog("Nombre de la empresa: "));
         c1.setDireccion(JOptionPane.showInputDialog("Direccion del correo: "));
         c1.setTelefono(Integer.parseInt(JOptionPane.showInputDialog("Telefono del correo: ")));
@@ -124,5 +120,15 @@ public class Documento {
                System.out.println(docs.get(i).getNombreDoc());
            }
         }
+    }
+    public static int cantidadEnEspera(ArrayList<Documento> docs){
+        int cantidadEnEspera = 0;
+        for(int i = 0; i< docs.size(); i++){
+            if(docs.get(i).isEstadoEnvio() == false){
+                cantidadEnEspera++;
+            }
+        }
+        System.out.println("Documentos en espera: " + cantidadEnEspera);
+        return cantidadEnEspera;
     }
 }

@@ -36,7 +36,7 @@ public class ProgramacionGlobal {
             Persona p1 = new Persona();
             trabajadores.add(p1);
             p1.setNombre(JOptionPane.showInputDialog("Ingrese su nombre: "));
-            /*p1.setCargo(JOptionPane.showInputDialog("Cargo que tiene: "));
+            p1.setCargo(JOptionPane.showInputDialog("Cargo que tiene: "));
             p1.setFechaIngreso(formato.parse(JOptionPane.showInputDialog("Fecha de Ingreso (dd/MM/yyyy): ")));
             //System.out.println(formato.format(p1.getFechaIngreso()));
             p1.setDireccion(JOptionPane.showInputDialog("Su direccion: "));
@@ -65,7 +65,7 @@ public class ProgramacionGlobal {
                 ArrayList<String> palabrasClaves = new ArrayList();
                 doc1.setAutor(p1);
                 doc1.setNombreDoc(JOptionPane.showInputDialog("Nombre del documento: "));
-                /*doc1.setFecha(formato.parse(JOptionPane.showInputDialog("Fecha (dd/MM/yyyy): ")));
+                doc1.setFecha(formato.parse(JOptionPane.showInputDialog("Fecha (dd/MM/yyyy): ")));
                 doc1.setEstadoEnvio(false);
                 dest.setNombre(JOptionPane.showInputDialog("Nombre del destinatario: "));
                 dest.setDireccion(JOptionPane.showInputDialog("Direccion del destinario: "));
@@ -84,7 +84,7 @@ public class ProgramacionGlobal {
                     doc1.datosCorreo(c, p1);
                     doc1.setNumeroSeguimiento(Float.parseFloat(JOptionPane.showInputDialog("Ingrese numero de seguimiento: ")));
                     doc1.setEstadoEnvio(true);               
-                }*/
+                }
                 creaDocumento = JOptionPane.showConfirmDialog(null, "Desea crear otro documento? ");
             }       
             esTrabajador = JOptionPane.showConfirmDialog(null, "¿Hay otro trabajador de la empresa?");
@@ -93,12 +93,11 @@ public class ProgramacionGlobal {
         int buscarPalabra;
         buscarPalabra = JOptionPane.showConfirmDialog(null, "Quiere buscar una palabra clave en los documentos?");
         if(buscarPalabra == 0 ){
-/*
             String palabra;
             palabra = JOptionPane.showInputDialog(null, "Ingrese la palabra que desea buscar");
-            d.documentosQueIncluyen(palabra, documentos);*/
+            d.documentosQueIncluyen(palabra, documentos);
         }
         p.autorMasProductivo(documentos, trabajadores);
-
+        d.cantidadEnEspera(documentos);
     }
 }
