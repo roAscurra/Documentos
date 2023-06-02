@@ -21,9 +21,10 @@ public class Documento {
     private EnteExterno enviadosA; //asociacion
     private Correo despachadoPor;
     private float numeroSeguimiento;
+    private String nombreDoc;
 
     public Documento(){}
-    public Documento(Date fecha, Persona autor, String empresa, ArrayList<String> palabrasClaves, boolean estadoEnvio, EnteExterno enviadosA, Correo despachadoPor, float numeroSeguimiento) {
+    public Documento(Date fecha, Persona autor, String empresa, ArrayList<String> palabrasClaves, boolean estadoEnvio, EnteExterno enviadosA, Correo despachadoPor, float numeroSeguimiento, String nombreDoc) {
         this.fecha = fecha;
         this.autor = autor;
         this.empresa = empresa;
@@ -32,6 +33,7 @@ public class Documento {
         this.enviadosA = enviadosA;
         this.despachadoPor = despachadoPor;
         this.numeroSeguimiento = numeroSeguimiento;
+        this.nombreDoc = nombreDoc;
     }
 
     public Date getFecha() {
@@ -101,6 +103,14 @@ public class Documento {
     public void setDespachadoPor(Correo despachadoPor) {
         this.despachadoPor = despachadoPor;
     }
+
+    public String getNombreDoc() {
+        return nombreDoc;
+    }
+
+    public void setNombreDoc(String nombreDoc) {
+        this.nombreDoc = nombreDoc;
+    }
     public static void datosCorreo(Correo c1, Persona p){
         c1.setNombreEmpresa(JOptionPane.showInputDialog("Nombre de la empresa: "));
         c1.setDireccion(JOptionPane.showInputDialog("Direccion del correo: "));
@@ -108,15 +118,11 @@ public class Documento {
         c1.setPersonaContacto(p);
     }
     public static void documentosQueIncluyen(String unaPalabra, ArrayList<Documento> docs){
-        ArrayList<Documento> docIncluye = new ArrayList();
+        System.out.println("Los documentos que incluyen la palabra ingresada son: ");
         for(int i=0;i<docs.size();i++){
            if(docs.get(i).getPalabrasClaves().get(i).equals(unaPalabra)){
-               docIncluye.add(docs.get(i));
+               System.out.println(docs.get(i).getNombreDoc());
            }
-        }
-        System.out.println("Los documentos que incluyen la palabra ingresada son: ");
-        for(int i=0; i<docIncluye.size();i++){
-            System.out.println(docIncluye.get(i).getAutor());
         }
     }
 }

@@ -82,7 +82,8 @@ public class Persona {
         for(int i=0 ; i < autores.size(); i++ ){
             int cantDoc = 0;
             for(int j = 0; j< docs.size(); j++){
-                if(docs.get(j).getAutor().equals(autores.get(i).getNombre())){
+                String name = autores.get(i).getNombre();
+                if(docs.get(j).getAutor().nombre.equals(name)){
                     cantDoc++;
                 }
             }
@@ -91,6 +92,7 @@ public class Persona {
                 autorMasProductivo = autores.get(i);
             }
         }
-        System.out.println("El empleado que mas documentos ha confeccionado es: "+autorMasProductivo.getNombre());
+        System.out.println("El empleado que mas documentos ha confeccionado es: " + autorMasProductivo.getNombre());
+
     }
 }
