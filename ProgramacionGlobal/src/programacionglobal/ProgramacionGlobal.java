@@ -30,9 +30,10 @@ public class ProgramacionGlobal {
         Persona p = new Persona();
         ArrayList<Persona> trabajadores = new ArrayList();
         ArrayList<Documento> documentos = new ArrayList();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
         esTrabajador = JOptionPane.showConfirmDialog(null, "Eres trabajador de la empresa?");
         while(esTrabajador==0){
-            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
             Persona p1 = new Persona();
             trabajadores.add(p1);
             p1.setNombre(JOptionPane.showInputDialog("Ingrese su nombre: "));
@@ -83,6 +84,8 @@ public class ProgramacionGlobal {
                     JOptionPane.showMessageDialog(null,"Debe ingresar los siguientes datos que corresponden al correo por el cual envia el documento");
                     doc1.datosCorreo(c, p1);
                     doc1.setNumeroSeguimiento(Float.parseFloat(JOptionPane.showInputDialog("Ingrese numero de seguimiento: ")));
+                    int seEnvio;
+                    seEnvio = JOptionPane.showConfirmDialog(null, "El documento ha sido enviado?");
                     doc1.setEstadoEnvio(true);               
                 }
                 creaDocumento = JOptionPane.showConfirmDialog(null, "Desea crear otro documento? ");
@@ -99,5 +102,45 @@ public class ProgramacionGlobal {
         }
         p.autorMasProductivo(documentos, trabajadores);
         d.cantidadEnEspera(documentos);
+        
+        
+        // Después de obtener la cantidad de documentos en espera
+        int cantidadEnEspera = d.cantidadEnEspera(documentos);
+
+        // Persistencia de la cantidad de documentos en espera
+        String rutaArchivoCantidadEnEspera = "cantidadEnEspera.txt";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(rutaArchivoCantidadEnEspera, true))) {
+            writer.write(String.valueOf(cantidadEnEspera));
+            writer.newLine();
+            System.out.println("Cantidad de documentos en espera guardada correctamente en el archivo.");
+        } catch (IOException e) {
+            System.out.println("Error al guardar la cantidad de documentos en espera en el archivo: " + e.getMessage());
+        }
+        // Persistencia de los datos de los trabajadores
+        String rutaArchivoTrabajadores = "trabajadores.txt";
+        //en caso de que el archivo exista. Se utiliza 'true' para abrir los archivos en modo de apendizaje, lo que permite agregar nuevos datos al final del archivo sin eliminar los existentes.
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(rutaArchivoTrabajadores, true))) { 
+            for (Persona trabajador : trabajadores) {
+                String datosTrabajador = "Nombre: " + trabajador.getNombre() + ", Cargo: " + trabajador.getCargo() + ", Fecha de Ingreso: " + formato.format(trabajador.getFechaIngreso()) + ", Dirección: " + trabajador.getDireccion() + ", Teléfono: " + trabajador.getTelefono();
+                writer.write(datosTrabajador);
+                writer.newLine();
+            }
+            System.out.println("Datos de los trabajadores guardados correctamente en el archivo.");
+        } catch (IOException e) {
+            System.out.println("Error al guardar los datos de los trabajadores en el archivo: " + e.getMessage());
+        }
+        // Persistencia de los datos de los documentos
+        String rutaArchivoDocumentos = "documentos.txt";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(rutaArchivoDocumentos, true))) {
+            for (Documento documento : documentos) {
+                String datosDocumento = "Autor: " + documento.getAutor().getNombre() + ", Nombre del documento: " + documento.getNombreDoc() + ", Fecha: " + formato.format(documento.getFecha()) + ", Estado de Envío: " + documento.isEstadoEnvio();
+                // Aquí puedes agregar más información relacionada con el documento, como el destinatario, palabras clave, etc.
+                writer.write(datosDocumento);
+                writer.newLine();
+            }
+            System.out.println("Datos de los documentos guardados correctamente en el archivo.");
+        } catch (IOException e) {
+            System.out.println("Error al guardar los datos de los documentos en el archivo: " + e.getMessage());
+        }
     }
 }
